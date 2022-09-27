@@ -1,6 +1,8 @@
 import './App.css';
 import {useState} from "react";
 import { v4 as uuidv4 } from 'uuid';
+import TodoList from "./components/todoList/TodoList";
+
 
 function App() {
   const [list, setList] = useState([
@@ -21,8 +23,12 @@ function App() {
     }
   ])
 
+
+
   return (
     <div className="App">
+      <TodoList list={list}/>
+
 
     </div>
   );
