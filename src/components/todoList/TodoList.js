@@ -1,18 +1,26 @@
-import TodoListItems from "../todoListItems/TodoListItems";
+import TodoListItems from "./TodoListItems";
 import {useState} from "react";
-import AddTodo from "../todoListItems/AddTodo";
+import AddTodo from "./AddTodo";
 
-export default function TodoList(props){
+export default function TodoList(props) {
     const [openAddInput, setOpenAddInput] = useState(false)
 
-    function toggleAddTask(){
+    function toggleAddTask() {
         setOpenAddInput(!openAddInput)
     }
+
     return (
         <div>
-            {props.list.map(el => <TodoListItems key={el.id} task={el}/>)}
+            <h1>To do list</h1>
             {!openAddInput && <button onClick={toggleAddTask}>Add new task</button>}
-            {openAddInput && <AddTodo toggleAddTask={toggleAddTask}/>}
+            {openAddInput && <AddTodo toggleAddTask={toggleAddTask} addNewTask={props.addNewTask}/>}
+            {props.list.filter(el => !el.cart).map((el, index) => <TodoListItems key={el.id}
+                                                          list={props.list}
+                                                          index={index}
+                                                          task={el}
+                                                          moveUp={props.moveUp}
+                                                          moveDown={props.moveDown}
+                                                          deleteTask={props.deleteTask}/>)}
         </div>
     )
 }
