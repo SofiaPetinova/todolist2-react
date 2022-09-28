@@ -59,15 +59,23 @@ function App() {
         setList(newList)
     }
 
+    function addToCartAndBack(id) {
+        const newList = list.map(el => el.id === id ? {...el, cart: !el.cart} : el)
+        setList(newList)
+    }
+
     return (
         <div className="App">
             <TodoList list={list}
                       addNewTask={addNewTask}
                       moveUp={moveUp}
                       moveDown={moveDown}
-                      deleteTask={deleteTask}/>
+                      deleteTask={deleteTask}
+                      addToCartAndBack={addToCartAndBack}/>
             <hr/>
-            <CartList list={list}/>
+            <CartList list={list}
+                      deleteTask={deleteTask}
+                      addToCartAndBack={addToCartAndBack} />
 
 
         </div>

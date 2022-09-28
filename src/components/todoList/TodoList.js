@@ -15,12 +15,13 @@ export default function TodoList(props) {
             {!openAddInput && <button onClick={toggleAddTask}>Add new task</button>}
             {openAddInput && <AddTodo toggleAddTask={toggleAddTask} addNewTask={props.addNewTask}/>}
             {props.list.filter(el => !el.cart).map((el, index) => <TodoListItems key={el.id}
-                                                          list={props.list}
-                                                          index={index}
-                                                          task={el}
-                                                          moveUp={props.moveUp}
-                                                          moveDown={props.moveDown}
-                                                          deleteTask={props.deleteTask}/>)}
+                                                                                 list={props.list.filter(el => !el.cart)}
+                                                                                 index={index}
+                                                                                 task={el}
+                                                                                 moveUp={props.moveUp}
+                                                                                 moveDown={props.moveDown}
+                                                                                 deleteTask={props.deleteTask}
+                                                                                 addToCartAndBack={props.addToCartAndBack}/>)}
         </div>
     )
 }
