@@ -10,7 +10,7 @@ export default function OpenInputOption(props){
     return(
         <>
             {!openAddInput && <button onClick={toggleAddTask}>{props.buttonLabel}</button>}
-            {openAddInput && <AddTodo toggleAddTask={toggleAddTask} inputFunction={props.inputFunction}/>}
+            {openAddInput && <AddTodo toggleAddTask={toggleAddTask} inputFunction={props.inputFunction} task={props.task}/>}
         </>
     )
 }

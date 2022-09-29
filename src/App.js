@@ -64,7 +64,7 @@ function App() {
         setList(newList)
     }
 
-    function updateTask(id, title){
+    function updateTask(title, id){
         const updatedList = list.map(el => el.id === id ? {...el, title} : el)
         setList(updatedList)
     }
