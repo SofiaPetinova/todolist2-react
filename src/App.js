@@ -64,6 +64,11 @@ function App() {
         setList(newList)
     }
 
+    function updateTask(id, title){
+        const updatedList = list.map(el => el.id === id ? {...el, title} : el)
+        setList(updatedList)
+    }
+
     return (
         <div className="App">
             <TodoList list={list}
@@ -71,7 +76,8 @@ function App() {
                       moveUp={moveUp}
                       moveDown={moveDown}
                       deleteTask={deleteTask}
-                      addToCartAndBack={addToCartAndBack}/>
+                      addToCartAndBack={addToCartAndBack}
+                      updateTask={updateTask}/>
             <hr/>
             <CartList list={list}
                       deleteTask={deleteTask}

@@ -3,7 +3,7 @@ import {useState} from "react";
 export default function AddTodo(props){
     const [inputName, setInputName] = useState('')
     function saveButtonHandler(){
-        props.addNewTask(inputName)
+        props.inputFunction(inputName)
         props.toggleAddTask()
     }
     return (
